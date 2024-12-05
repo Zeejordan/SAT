@@ -1,118 +1,111 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+// import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native'
+// import React from 'react'
+// import { NavigationContainer } from "@react-navigation/native";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import SplashScreen from './src/Pages/SplashScreen'
+// import LevelScreenV2 from './src/Pages/LevelScreenV2'
+// import TestQuestion from './src/Pages/TestQuestion'
+// import LevelComplete from './src/Pages/LevelComplete'
+// import QuizComplete from './src/Pages/QuizComplete'
+// import GoogleSplashScreen from './src/Pages/SplashScreen2'
+// import LoginPage from './src/Pages/LoginPage'
+// import HomeScreen from './src/Pages/HomeScreen'
+// import OtpVerification from './src/Pages/OtpVerification'
+// import GoogleAuth from './src/Pages/GoogleAuth';
+// import ProfileDetails from './src/Pages/ProfileDetails';
+// import Infinite from './src/Pages/Infinite';
+// import Footer from './src/Components/Footer';
+// import Levels from './src/Pages/Infinite';
+// import Quiz from './src/Pages/Quiz';
+// import EnglishQuiz from './src/Pages/EnglishQuiz';
+// import EnglishQuizQuestion from './src/Components/EnglishQuizQuestion';
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+// // const Stack = createNativeStackNavigator();
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+// const App = () => {
+//   return (
+//     <SafeAreaView style={styles.mainContainer}>
+//       {/* <SplashScreen /> */}
+//       {/* <GoogleSplashScreen/> */}
+//       {/* <TestQuestion /> */}
+//       {/* <LevelComplete /> */}
+//       {/* <QuizComplete /> */}
+//       {/* <LoginPage/> */}
+//       {/* <HomeScreen/> */}
+//       {/* <OtpVerification/> */}
+//       {/* <GoogleAuth/> */}
+//       {/* <ProfileDetails /> */}
+//       {/* <Levels /> */}
+//       {/* <Quiz /> */}
+//       <EnglishQuiz />
+//       {/* <EnglishQuizQuestion /> */}
+//       {/* <Footer /> */}
+//     </SafeAreaView>
+//   )
+// }
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+// export default App
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+// const styles = StyleSheet.create({
+//   mainContainer: {
+//     flex: 1
+//   }
+// })
+
+//-------------------------------------------------------------------------------------------------------------------
+import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native'
+import React, { useState } from 'react'
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+
+import SplashScreen from './src/Pages/SplashScreen'
+import LevelScreenV2 from './src/Pages/LevelScreenV2'
+import TestQuestion from './src/Pages/TestQuestion'
+import LevelComplete from './src/Pages/LevelComplete'
+import QuizComplete from './src/Pages/QuizComplete'
+import GoogleSplashScreen from './src/Pages/SplashScreen2'
+import LoginPage from './src/Pages/LoginPage'
+import HomeScreen from './src/Pages/HomeScreen'
+import OtpVerification from './src/Pages/OtpVerification'
+import ProfileDetails from './src/Pages/ProfileDetails';
+import Levels from './src/Pages/Infinite';
+import Quiz from './src/Pages/Quiz';
+import EnglishQuiz from './src/Pages/EnglishQuiz';
+
+const Stack = createNativeStackNavigator();
+
+const App = () => {
+  const initialRoute = 'SplashScreen';
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName={initialRoute}
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="GoogleLogin" component={GoogleSplashScreen} />
+        <Stack.Screen name="TestQuestion" component={TestQuestion} />
+        <Stack.Screen name="LevelComplete" component={LevelComplete} />
+        <Stack.Screen name="QuizComplete" component={QuizComplete} />
+        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="OtpVerification" component={OtpVerification} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="ProfileDetails" component={ProfileDetails} />
+        <Stack.Screen name="Levels" component={Levels} />
+        <Stack.Screen name="Quiz" component={Quiz} />
+        <Stack.Screen name="English-Quiz" component={EnglishQuiz} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+export default App
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+  mainContainer: {
+    flex: 1
+  }
+})

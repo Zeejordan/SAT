@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Jaldi-Regular.ttf",
+      "sha1": "22ed42b717eb09d29308476d1518ded49e5d1769"
+    },
+    {
+      "path": "assets/fonts/Keania One.ttf",
+      "sha1": "3b9e70d3c4be9023269952e971546d354dbec0dd"
+    },
+    {
+      "path": "assets/fonts/Sour Gummy Thin.ttf",
+      "sha1": "b23292f7563ca248b60b2e07b13568b35da3f26d"
+    }
+  ]
+}
